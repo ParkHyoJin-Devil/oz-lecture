@@ -1,0 +1,59 @@
+html
+{
+    font-size: 16px;
+}
+
+body
+{
+    margin: 0;
+    font-family: arial, sans-serif;
+}
+
+h1
+{
+    text-align: center;
+    /* 2rem = html의 2배 32px */
+    padding: 2rem;
+    background-color: lightblue;
+}
+
+main
+{
+    /* 1rem = html의 1배 16px */
+    padding: 1rem;
+}
+
+.box
+{
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: lightcoral;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* 태블릿 */
+@media (min-width: 768px)
+{
+    main
+    {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .box
+    {
+        width: calc(50% - 0.5rem);
+    }
+}
+
+/* 데스크톱 : 1024px 이상 */
+@media screen and (min-width: 1024px)
+{
+    .box
+    {
+        width: calc(33.33% - 0.7rem);
+    }
+}

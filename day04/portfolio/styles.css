@@ -1,0 +1,108 @@
+header
+{
+    padding: 20px;
+    border-bottom: 2px solid #333;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+}
+
+.project
+{
+    display: block;
+    padding: 15px;
+    border: 1px solid #ccc;
+    /* margin: 10px 0; */
+    float: left;
+    width: 30%;
+    margin: 1.66%;
+}
+
+aside
+{
+    padding: 10px;
+    border-left: 3px solid #007bff;
+    margin: 20px;
+    position: relative;
+    float: right;
+    width: 25%;
+}
+
+aside h3
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+nav ul
+{
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* align-items: center; */
+}
+
+nav ul li
+{
+    /* display: inline-block; */
+    float: left;
+    margin-right: 20px;
+}
+
+footer p:first-child
+{
+    display: none;
+}
+
+#projects
+{
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 20px; */
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    grid-template-columns: repeat(auto-fit, minmax(3, 1fr));
+    gap: 20px;
+}
+
+body
+{
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+a
+{
+    text-decoration: none;
+    color: #007bff;
+}
+
+h1
+{
+    font-size: 2em;
+    margin: 20px;
+}
+
+h2
+{
+    font-size: 1.5em;
+    margin: 15px;
+}
+
+h3
+{
+    font-size: 1.2em;
+    margin: 12px;
+}
+
+section
+{
+    float: left;
+    width: 70%;
+}
+
+footer
+{
+    clear: both;
+}

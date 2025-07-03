@@ -1,0 +1,112 @@
+body
+{
+    max-width: 80vw;
+    text-align: center;
+    font-size: 1rem;
+}
+
+header
+{
+    padding: 2rem;
+    border-bottom: 0.2rem solid #333;
+}
+
+nav ul
+{
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+}
+
+#posts
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.post
+{
+    padding: 1.5rem;
+    border: 0.2rem solid #000000;
+}
+
+aside
+{
+    width: 25vw;
+    padding: 1.5rem;
+    margin-right: 2vw;
+    font-size: 1em;
+}
+
+footer
+{
+    padding: 1.5rem;
+    border-top: 0.2rem solid #000000;
+    text-align: center;
+}
+
+h1
+{
+    font-size: 2.5rem;
+}
+
+section
+{
+    margin: 2vw;
+}
+
+@media (max-width: 1023px)
+{
+    body
+    {
+        max-width: 90vw;
+    }
+
+    #posts
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    nav ul
+    {
+        flex-direction: row;
+        gap: 8rem;
+    }
+
+    aside
+    {
+        width: 30vw;
+        margin: 1.5vw;
+    }
+}
+
+@media (max-width: 767px)
+{
+    body
+    {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    nav ul
+    {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #posts
+    {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+    }
+
+    aside
+    {
+        width: 100%;
+        margin: 1rem;
+    }
+}
