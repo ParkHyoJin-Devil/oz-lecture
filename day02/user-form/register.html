@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>User Registration Form</title>
+    </head>
+    <body>
+        <!-- 회원가입 폼 제목 -->
+        <header>
+            <h1>User Registration</h1>
+            <nav>
+                <ul>
+                    <li><a href="@Home">홈</a></li>
+                    <li><a href="@Register">회원가입</a></li>
+                    <li><a href="@About">소개</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <!-- 섹션 제목 -->
+                <h2>Registration Form</h2>
+                <!-- 사용자 등록 폼 시작 -->
+                <form action="#" method="post">
+                    <!-- 이름 입력란 -->
+                    <div>
+                        <label for="name">이름 : </label> 
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <!-- 이메일 입력란 -->
+                    <div>
+                        <label for="email">Email : </label> 
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <!-- 비밀번호 입력란 -->
+                    <div>
+                        <label for="password">비밀번호 : </label> 
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <!-- 생일 입력란 -->
+                    <div>
+                        <label for="date">생일 : </label> 
+                        <input type="date" id="date" name="date">
+                    </div>
+                    <!-- 나이 입력란 (18~100세 제한) -->
+                    <div>
+                        <label for="number">나이 : </label> 
+                        <input type="number" id="number" name="number" min="18" max="100">
+                    </div>
+                    <!-- 만족도 입력 (슬라이더) -->
+                    <div>
+                        <label for="range">만족도 : </label> 
+                        <input type="range" id="range" name="range" min="1" max="10">
+                    </div>
+                    <!-- 성별 선택 (라디오 버튼) -->
+                    <div>
+                        <label>성별 : </label>
+                        <input type="radio" id="male" name="gander" value="male">
+                        <label for="male">남성</label> 
+                        <input type="radio" id="female" name="gander" value="female">
+                        <label for="female">여성</label> 
+                    </div>
+                    <!-- 관심사 선택 (체크박스) -->
+                    <div>
+                        <label>관심사 : </label>
+                        <input type="checkbox" id="Coding" name="hobby" value="Coding">
+                        <label for="Coding">코딩</label>
+                        <input type="checkbox" id="Gaming" name="hobby" value="Gaming">
+                        <label for="Gaming">게임</label>
+                        <input type="checkbox" id="Reading" name="hobby" value="Reading">
+                        <label for="Reading">독서</label>
+                    </div>
+                    <!-- 국가 선택 (드롭다운) -->
+                    <div>
+                        <label for="nation">국가:</label> 
+                        <select name="nation">
+                            <option value="South Korea">대한민국</option>
+                            <option value="USA">미국</option>
+                            <option value="Japan">일본</option>
+                            <option value="China">중국</option>
+                            <option value="UK">영국</option>
+                        </select>
+                    </div>
+                    <!-- 제출 및 초기화 버튼 -->
+                    <div>
+                        <button type="submit">제출</button>
+                        <button type="reset">초기화</button>
+                    </div>
+                </form>
+            </section>
+            <article>
+                <canvas></canvas>
+                <p>Why Register? Registering allows you to access exclusive features...</p>
+            </article>
+        </main>
+        <hr>
+        <aside>
+            <svg width="100" height="100">
+                <circle cx="50" cy="50" r="40" stroke="black" stroke-width="2" fill="blue" />
+            </svg>
+            <ul>
+                <li><a href="#Registration Tips">Registration Tips</a></li>
+                <li><a href="#Contact Support">Contact Support</a></li>
+            </ul>
+        </aside>
+        <hr>
+        <footer>
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls width="300">
+                브라우저가 비디오를 지원하지 않습니다.
+            </video>
+            <p>&copy; 2025 Your Website</p>
+            <p><a href="#Contact Email">Contact Email</a></p>
+        </footer>
+    </body>
+</html>

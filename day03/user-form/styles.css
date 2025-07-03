@@ -1,0 +1,124 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-group
+{
+    margin-bottom: 15px;
+}
+
+body
+{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+#registration-form
+{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+[type="text"]
+{
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+[type="email"]
+{
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+[type="password"]
+{
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+[type="submit"]
+{
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+}
+
+[type="reset"]
+{
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+}
+
+form p
+{
+    padding: 5px;
+}
+
+form>p
+{
+    border-bottom: 1px solid #eee;
+}
+
+label
+{
+    /*인라인으로 하면 넓이 조절이 불가능 그래서 인라인 블록으로 했다*/
+    display: inline-block;
+    width: 100px;
+}
+
+select
+{
+    width: 100px;
+    border: 3px solid green;
+}
+
+[type="submit"]:hover
+{
+    background-color: #0056b3;
+}
+
+[type="reset"]:hover
+{
+    background-color: #0056b3;
+}
+
+select:hover
+{
+    border: 3px solid #007bff;
+}
+
+form>p:first-child
+{
+    margin-top: 20px;
+}
+
+select option:first-child
+{
+    font-weight: bold;
+}
+
+h1::after
+{
+    content: "✨";
+    margin-left: 10px;
+}
+
+.form-group::after
+{
+    content: "";
+    display: block;
+    height: 1px;
+    background: #ddd;
+    margin-top: 10px;
+}
+
+label::after
+{
+    content: "*";
+    color: red;
+}
