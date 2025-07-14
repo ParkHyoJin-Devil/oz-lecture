@@ -6,51 +6,84 @@ const taskInput = document.getElementById("taskInput");
 const addButton = document.getElementById("addButton");
 const taskList = document.getElementById("taskList");
 const clearButton = document.getElementById("clearButton");
+const taskCount = document.getElementById("taskCount");
+const priority = document.getElementById("priority");
 
 // 입력값 검증 및 할 일 추가 함수
 function addTask() {
-  const taskText = taskInput.value.trim();
+    const taskText = taskInput.value.trim();
 
-  // 입력값이 비어있는지 확인 (유효성 검증) early-return;
-  console.log(taskText);
-  if (taskText === "") {
-    alert("할일을 입력해주세요");
-    return;
-  }
+    // 입력값이 비어있는지 확인 (유효성 검증) early-return;
+    console.log(taskText);
+    if (taskText === "") {
+        alert("할일을 입력해주세요");
+        return;
+    }
 
-  // 새로운 리스트 아이템 생성
-  const li = document.createElement("li");
-  li.className = "task-item";
+    // 새로운 리스트 아이템 생성
+    const li = document.createElement("li");
+    li.className = "task-item";
 
-  // 할 일 텍스트 추가
-  const span = document.createElement("span");
-  span.textContent = taskText;
+    // 할 일 텍스트 추가
+    const span = document.createElement("span");
 
-  // 삭제 버튼 생성
-  //   const deleteButton = ~~~~~
+    if (priority.value === "high") {
+        span.style.color = "#ff0000";
+    } else {
+        span.style.color = "#000000";
+    }
 
-  // 삭제 버튼 이벤트 리스너
-  //   deleteButton.addEventListener("click", function () {
-  //     taskList.removeChild(li);
-  //   });
+    span.textContent = taskText;
 
-  // 완료 상태 토글 이벤트 리스너
-  //   addEventListener
-  // span.classList.toggle("completed")
+    // 삭제 버튼 생성
+    const taskIndex = taskList.querySelector(".task-index");
+    const deleteButton = document.createElement("button");
+    deleteButton.id = "delete";
+    deleteButton.textContent = "삭제";
 
-  // 요소 조립
-  li.appendChild(span);
-  taskList.appendChild(li);
+    // 삭제 버튼 이벤트 리스너
+    deleteButton.addEventListener("click", function () {
+        const taskItem = document.getElementsByClassName("task-item");
+        if (taskItem[0] !== undefined) taskItem[0].remove();
+        taskCount.textContent = `현재 할 일: ${taskItem.length}개`;
+    });
 
-  // 입력창 초기화
+    // 완료 상태 토글 이벤트 리스너
+    span.addEventListener("click", function () {
+        span.classList.toggle("completed");
+    });
+
+    // 요소 조립
+    li.appendChild(span);
+    taskList.appendChild(li);
+    if (!document.getElementById("delete")) taskIndex.appendChild(deleteButton);
+
+    // 입력창 초기화
+    taskInput.value = "";
+
+    //
+    const taskItem = document.getElementsByClassName("task-item");
+    taskCount.textContent = `현재 할 일: ${taskItem.length}개`;
 }
 
 // 모든 할 일 삭제 함수
-function clearAllTasks() {}
+function clearAllTasks() {
+    const taskItem = document.querySelectorAll(".task-item");
+    //console.log(taskItem);
+    for (const Item of taskItem) {
+        Item.remove();
+    }
 
+    const removeItem = document.querySelectorAll(".task-item");
+    taskCount.textContent = `현재 할 일: ${removeItem.length}개`;
+}
 // 추가 버튼 클릭 이벤트 적용
 addButton.addEventListener("click", addTask);
 
 // 입력창에서 Enter 키 이벤트 적용 (event.key === 'Enter')
+taskInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") addTask();
+});
 
 // 전체 삭제 버튼 클릭 이벤트 적용
+clearButton.addEventListener("click", clearAllTasks);
