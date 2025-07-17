@@ -44,8 +44,12 @@ function removeBook(button) {
     const title = text.split(" - ")[0]; // 제목: "책1"
 
     // TODO : books 배열에서 도서 제거 (findIndex, splice 사용)
+    let bookIndex = books.findIndex((book) => book.title === title);
+    books.splice(bookIndex, 1);
 
     // TODO(도전과제) : rentals 배열에서 대여 상태 제거 (findIndex, splice 사용)
+    let rentalsIndex = rentals.findIndex((rental) => rental.getStatus().title === title);
+    rentals.splice(rentalsIndex, 1);
 
     // DOM에서 li 제거
     li.remove();
@@ -54,13 +58,20 @@ function removeBook(button) {
 // 도서 데이터 처리
 function processBooks() {
     // TODO : map 제목에 "Book: " 접두사 추가
-    const prefixedBooks = books.map(() => {});
+    const prefixedBooks = books.map((book) => {
+        book.title = "Book: " + book.title;
+        return book;
+    });
 
     // TODO : filter 10000원 이상 도서
-    const highPriceBooks = books.filter(() => {});
+    const highPriceBooks = books.filter((book) => {
+        return book.price >= 10000;
+    });
 
     // TODO : reduce 총 가격 계산
-    const totalPrice = books.reduce(() => {}, 0);
+    const totalPrice = books.reduce((acc, book) => {
+        return acc + book.price;
+    }, 0);
 
     // 결과 표시
     const resultsDiv = document.getElementById("results");
@@ -120,12 +131,19 @@ function toggleRental(button) {
     const title = text.split(" - ")[0];
 
     // TODO(도전과제) : rentals에서 title과 동일한 요소 찾기
-    const rental = rentals.find(() => {});
+    const rental = rentals.find((book) => {
+        return title === book.getStatus().title;
+    });
     if (!rental) return;
 
     const status = rental.getStatus();
     // TODO(도전과제) : books에서 title과 동일한 요소 찾기
-    const book = books.find(() => {});
+    const book = books.find((book) => {
+        return "Book: " + title === book.title;
+    });
+
+    if (!book) return;
+
     if (status.isBorrowed) {
         rental.returnBook();
         li.querySelector("span").textContent = `${title} - ${book.price}원 (대여 가능)`;
@@ -134,6 +152,8 @@ function toggleRental(button) {
             li.querySelector("span").textContent = `${title} - ${book.price}원 (대여 중)`;
         }
     }
+
+    console.log(rentals);
 }
 
 // 모든 대여 상태 표시
